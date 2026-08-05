@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ country.name }}</h1>
+<p>
+  <b>ISO Code: </b>{{ country.iso_code }}
+</p>
+<p>
+  <b>Region: </b><a href="/regions/{{ country.region_id }}">{{ country.region_name|striptags }}</a>
+</p>
+<p>
+  <b>Heritage Sites: </b>
+<ul>
+  {% for s in sites %}
+  <li>
+    <a href="/sites/{{ s.id_no }}">{{ s.name_en|striptags }}</a>
+    ({{ s.date_inscribed }}, {{ s.category_short }})
+    {% if s.danger == 1 %}
+    - In Danger
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

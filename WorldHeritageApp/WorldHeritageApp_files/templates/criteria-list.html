@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Criteria</h1>
+<table>
+  <tr>
+    <th><b>ID</b></th>
+    <th><b>Name</b></th>
+    <th><b>Sites</b></th>
+  </tr>
+  {% for cr in criteria %}
+  <tr>
+    <td>
+      <a href="/criteria/{{ cr.criteria_id }}">{{ cr.criteria_id }}</a>
+    </td>
+    <td>{{ cr.criteria_name }}</td>
+    <td>{{ cr.site_count }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

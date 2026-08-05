@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>UNESCO Queries</h1>
+<p>Select a query to view results:</p>
+
+<table>
+  <tr>
+    <th>Query</th>
+    <th>Description</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Local com maior área</td>
+    <td><a href="/query/1">View Results</a></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>Número de países com mais de 5 sites</td>
+    <td><a href="/query/2">View Results</a></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Locais com latitude > 40 e longitude > 30</td>
+    <td><a href="/query/3">View Results</a></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>Critério mais aplicado</td>
+    <td><a href="/query/4">View Results</a></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>Locais que são apenas da categoria "Natural"</td>
+    <td><a href="/query/5">View Results</a></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>Locais com "PARK" no nome</td>
+    <td><a href="/query/6">View Results</a></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>Média de área por categoria</td>
+    <td><a href="/query/7">View Results</a></td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>Locais com justificação e inscritos após 2010</td>
+    <td><a href="/query/8">View Results</a></td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>Qual é o número de sites que estão associados à Região 5</td>
+    <td><a href="/query/9">View Results</a></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>Sites com descrição/justificação incompleta mas com mais de 4 critérios</td>
+    <td><a href="/query/10">View Results</a></td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>Localização relativa à latitude média</td>
+    <td><a href="/query/11">View Results</a></td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>Categoria com maior área total</td>
+    <td><a href="/query/12">View Results</a></td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>Locais em perigo com data final expirada</td>
+    <td><a href="/query/13">View Results</a></td>
+  </tr>
+</table>
+{% endblock %}

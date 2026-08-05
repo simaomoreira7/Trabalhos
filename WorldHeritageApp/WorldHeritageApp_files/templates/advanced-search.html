@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Advanced Search</h1>
+
+<form action="/advanced-search/">
+  <p>
+    <b>Country: </b>
+    <select name="country">
+      <option value="">All Countries</option>
+      {% for c in countries %}
+      <option value="{{ c.iso_code }}" {% if filters.country == c.iso_code %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  
+  <p>
+    <b>Region: </b>
+    <select name="region">
+      <option value="">All Regions</option>
+      {% for r in regions %}
+      <option value="{{ r.region_id }}" {% if filters.region == r.region_id|string %}selected{% endif %}>{{ r.name }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  
+  <p>
+    <b>Category: </b>
+    <select name="category">
+      <option value="">All Categories</option>
+      {% for cat in categories %}
+      <option value="{{ cat.category_id }}" {% if filters.category == cat.category_id|string %}selected{% endif %}>{{ cat.category }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  
+  <p>
+    <b>Criteria: </b>
+    <select name="criteria">
+      <option value="">All Criteria</option>
+      {% for cr in criteria_list %}
+      <option value="{{ cr.criteria_id }}" {% if filters.criteria == cr.criteria_id|string %}selected{% endif %}>{{ cr.criteria_name }}</option>
+      {% endfor %}
+    </select>
+  </p>
+  
+  <p>
+    <b>Danger Status: </b>
+    <select name="danger">
+      <option value="">All Sites</option>
+      <option value="yes" {% if filters.danger == 'yes' %}selected{% endif %}>In Danger Only</option>
+      <option value="no" {% if filters.danger == 'no' %}selected{% endif %}>Not in Danger</option>
+    </select>
+  </p>
+  
+  <input type="submit" value="Search"/>
+</form>
+
+{% if sites %}
+<h2>Search Results ({{ sites|length }} sites)</h2>
+<table>
+  <tr>
+    <th><b>ID</b></th>
+    <th><b>Name</b></th>
+    <th><b>Year Inscribed</b></th>
+    <th><b>Category</b></th>
+    <th><b>Countries</b></th>
+    <th><b>Status</b></th>
+  </tr>
+  {% for s in sites %}
+  <tr>
+    <td>
+      <a href="/sites/{{ s.id_no }}">{{ s.id_no }}</a>
+    </td>
+    <td>{{ s.name_en }}</td>
+    <td>{{ s.date_inscribed }}</td>
+    <td>{{ s.category_short }}</td>
+    <td>{{ s.countries }}</td>
+    <td>
+      {% if s.danger == 1 %}
+      In Danger
+      {% else %}
+      Protected
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% elif filters %}
+<p>No sites found matching your criteria.</p>
+{% endif %}
+{% endblock %}

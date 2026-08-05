@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Query {{ query_number }} Result</h1>
+
+<table>
+  <tr>
+    {% for key in result.keys() %}
+    <th>{{ key }}</th>
+    {% endfor %}
+  </tr>
+  <tr>
+    {% for value in result %}
+    <td>{{ value|striptags|replace('         ', ' ')|trim }}</td>
+    {% endfor %}
+  </tr>
+</table>
+
+<p><a href="/queries/">Back to Queries</a></p>
+{% endblock %}

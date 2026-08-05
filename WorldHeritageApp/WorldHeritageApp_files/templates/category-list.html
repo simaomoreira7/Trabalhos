@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Categories</h1>
+<table>
+  <tr>
+    <th><b>ID</b></th>
+    <th><b>Category</b></th>
+    <th><b>Short</b></th>
+    <th><b>Sites</b></th>
+  </tr>
+  {% for cat in categories %}
+  <tr>
+    <td>
+      <a href="/categories/{{ cat.category_id }}">{{ cat.category_id }}</a>
+    </td>
+    <td>{{ cat.category }}</td>
+    <td>{{ cat.category_short }}</td>
+    <td>{{ cat.site_count }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

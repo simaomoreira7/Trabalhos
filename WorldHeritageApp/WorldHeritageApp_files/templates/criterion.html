@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ criterion.criteria_name }}</h1>
+<p>
+  <b>Criteria ID: </b>{{ criterion.criteria_id }}
+</p>
+<p>
+  <b>Description: </b>{{ criterion.criteria_description }}
+</p>
+<p>
+  <b>Sites: </b>
+<ul>
+  {% for s in sites %}
+  <li>
+    <a href="/sites/{{ s.id_no }}">{{ s.name_en | striptags}}</a>
+    ({{ s.date_inscribed }})
+    {% if s.danger == 1 %}
+    - In Danger
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

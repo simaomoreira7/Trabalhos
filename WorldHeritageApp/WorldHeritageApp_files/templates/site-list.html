@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>UNESCO Heritage Sites</h1>
+<table>
+  <tr>
+    <th><b>ID</b></th>
+    <th><b>Name</b></th>
+    <th><b>Year Inscribed</b></th>
+    <th><b>Category</b></th>
+    <th><b>Status</b></th>
+  </tr>
+  {% for s in sites %}
+  <tr>
+    <td>
+      <a href="/sites/{{ s.id_no }}">{{ s.id_no }}</a>
+    </td>
+    <td>{{ s.name_en|striptags }}</td>
+    <td>{{ s.date_inscribed }}</td>
+    <td>{{ s.category_short }}</td>
+    <td>
+      {% if s.danger == 1 %}
+      In Danger
+      {% else %}
+      Protected
+      {% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

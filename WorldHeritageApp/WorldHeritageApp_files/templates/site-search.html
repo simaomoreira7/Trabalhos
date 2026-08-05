@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Site search results</h1>
+<p><b>Search expression</b>: "{{ search.expr }}"</p>
+<p>
+<ul>
+  {% for s in sites %}
+  <li>
+    <a href="/sites/{{ s.id_no }}">{{ s.name_en }}</a> ({{ s.date_inscribed }})
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

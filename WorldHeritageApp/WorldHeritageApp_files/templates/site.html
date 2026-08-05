@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ site.name_en }}</h1>
+<p>
+  <b>ID: </b>{{ site.id_no }}
+</p>
+<p>
+  <b>Year Inscribed: </b>{{ site.date_inscribed }}
+</p>
+<p>
+  <b>Category: </b>{{ site.category }}
+</p>
+<p>
+  <b>Short Description: </b>{{ site.short_description|striptags}}
+</p>
+<p>
+  <b>Status: </b>
+  {% if site.danger == 1 %}
+  In Danger
+  {% else %}
+  Protected
+  {% endif %}
+</p>
+<p>
+  <b>Countries: </b>
+<ul>
+  {% for c in countries %}
+  <li>
+    <a href="/countries/{{ c.iso_code }}">{{ c.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+<p>
+  <b>Criteria: </b>
+<ul>
+  {% for cr in criteria %}
+  <li>{{ cr.criteria_name }}: {{ cr.criteria_description }}</li>
+  {% endfor %}
+</ul>
+</p>
+{% if secondary_dates %}
+<p>
+  <b>Secondary Dates: </b>
+<ul>
+  {% for d in secondary_dates %}
+  <li>{{ d.secondary_date }}</li>
+  {% endfor %}
+</ul>
+</p>
+{% endif %}
+{% endblock %}

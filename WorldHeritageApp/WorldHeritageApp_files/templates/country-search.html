@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Country search results</h1>
+<p><b>Search expression</b>: "{{ search.expr }}"</p>
+<p>
+<ul>
+  {% for c in countries %}
+  <li>
+    <a href="/countries/{{ c.iso_code}}">{{ c.name}}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

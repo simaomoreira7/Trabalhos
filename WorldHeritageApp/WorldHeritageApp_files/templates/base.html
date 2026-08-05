@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNESCO World Heritage Sites</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+  <div class="nav-buttons">
+    <a href="/" class="nav-button">Home</a>
+    <a href="/sites/" class="nav-button">Sites</a>
+    <a href="/countries/" class="nav-button">Countries</a>
+    <a href="/regions/" class="nav-button">Regions</a>
+    <a href="/categories/" class="nav-button">Categories</a>
+    <a href="/criteria/" class="nav-button">Criteria</a>
+    <a href="/danger/" class="nav-button danger">In Danger</a>
+    <a href="/advanced-search/" class="nav-button search">Advanced</a>
+    <a href="/queries/" class="nav-button">Queries</a>
+  </div>
+</nav>
+<section class="content">
+  {% block content %}{% endblock %}
+</section>
+</body>
+</html>

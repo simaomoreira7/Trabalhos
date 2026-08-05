@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>{{ region.name }}</h1>
+<p>
+  <b>Region ID: </b>{{ region.region_id }}
+</p>
+<p>
+  <b>Countries: </b>
+<ul>
+  {% for c in countries %}
+  <li>
+    <a href="/countries/{{ c.iso_code }}">{{ c.name }}</a>
+  </li>
+  {% endfor %}
+</ul>
+</p>
+{% endblock %}

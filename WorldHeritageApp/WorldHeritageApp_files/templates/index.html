@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>UNESCO World Heritage Sites</h1>
+
+<h2>About</h2>
+<p>This web application illustrates the use of the UNESCO World Heritage Sites database.</p>
+
+<h2>Database statistics</h2>
+<table>
+  <tr>
+    <th>Items</th>
+    <th>Count</th>
+  </tr>
+  <tr>
+    <td>Heritage Sites</td>
+    <td>{{ stats.n_sites }}</td>
+  </tr>
+  <tr>
+    <td>Countries</td>
+    <td>{{ stats.n_countries }}</td>
+  </tr>
+  <tr>
+    <td>Regions</td>
+    <td>{{ stats.n_regions }}</td>
+  </tr>
+  <tr>
+    <td>Categories</td>
+    <td>{{ stats.n_categories }}</td>
+  </tr>
+  <tr>
+    <td>Criteria</td>
+    <td>{{ stats.n_criteria }}</td>
+  </tr>
+</table>
+
+<h2>Search Sites</h2>
+<p>Search by site name:
+<form action="/sites/search/">
+  <input name="q" id="expr" value="" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+
+<h2>Search Countries</h2>
+<p>Search by country name:
+<form action="/countries/search/">
+  <input name="q" id="expr" value="" required/>
+  <input type="submit" value="search"/>
+</form>
+</p>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Sites in Danger</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Year</th>
+    <th>Country</th>
+    <th>Status <small>(Y=In danger, P=Was in danger)</small></th>
+  </tr>
+  {% for s in sites %}
+  <tr>
+    <td>
+      <a href="/sites/{{ s.id_no }}">{{ s.id_no }}</a>
+    </td>
+    <td>{{ s.name_en }}</td>
+    <td>{{ s.date_inscribed }}</td>
+    <td>{{ s.countries }}</td>
+    <td>{{ s.danger_list }}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+<p><small><strong>Legend:</strong> Y [year] = Currently in danger since [year]. P [years] = Previously in danger during [years].</small></p>
+{% endblock %}
